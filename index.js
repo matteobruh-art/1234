@@ -186,11 +186,10 @@ if(message.content.includes("bot strano") || message.content.includes("Bot stran
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
   message.channel.send("Hey SplashBot, come va?")
 }
+var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 if(message.content.startsWith("bot killa")){
-    var utentekillato = message.mentions.members.first();
-    var utentekiller = message.member;
-    var messaggikiller = [utentekillato.toString() + " ha visto un video dei Me Contro Te", utentekillato + " si è iscritto a T-Series"];
+    var utentekillato  = message.mentions.members.first();
     var random = Math.floor(Math.random() * messaggikiller.lenght);
-    message.channel.send(messaggikiller[random]);
+    message.channel.send(utentekillato + messaggikiller[random]);
 }
 });
