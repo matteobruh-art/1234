@@ -190,6 +190,6 @@ var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a 
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
     var random = Math.floor(Math.random() * messaggikiller.lenght);
-    message.channel.send(utentekillato + messaggikiller[random]);
+    message.channel.send(utentekillato.toString() + messaggikiller[random]);
 }
 });
