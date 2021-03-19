@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
-
+var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -186,7 +186,7 @@ if(message.content.includes("bot strano") || message.content.includes("Bot stran
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
   message.channel.send("Hey SplashBot, come va?")
 }
-var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
+
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
     var random = Math.floor(Math.random() * messaggikiller.lenght);
