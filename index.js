@@ -158,10 +158,7 @@ var utenteKick = message.mentions.members.first();
         message.channel.send("Non sei dentro in un canale vocale");
     }
     else{
-        canalevocale.join()
-        .then(connection => {
-          connection.play("bruh.mp3");
-        })
+        canalevocale.join();
     }
 }
   if(message.content == "Salva"){
@@ -183,10 +180,17 @@ if(message.content == "chi sono io?"){
 if(message.content.includes("teo")||message.content.includes("Teo")||message.content.includes("TEO")){
     message.channel.send("<@" + 736906782571495446 + ">");
 }
-if(message.content.includes == "bot strano" || message.content.includes == "Bot strano"|| message.content.includes == "BOT STRANO"){
+if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
       message.channel.send("cosa?");
 }
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
   message.channel.send("Hey SplashBot, come va?")
+}
+if(message.content.startsWith("bot killa")){
+    var utentekillato = message.mentions.members.first();
+    var utentekiller = message.member;
+    var messaggikiller = [utentekillato.toString() + " ha visto un video dei Me Contro Te", utentekillato + " si è iscritto a T-Series"];
+    var random = Math.floor(Math.random()* mesaggikiller.lenght);
+    message.channel.send(messaggikiller[random]);
 }
 });
