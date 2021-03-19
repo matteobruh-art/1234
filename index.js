@@ -176,17 +176,14 @@ message.channel.send("Caricamento in corso...")
     message.channel.send("Caricamento completato!")
 }, timeout=2000)});
 }
-if(message.content.includes == "teo"){
-    message.channel.send("<@" + 736906782571495446 + ">")
-}
-if(message.content.includes == "minecraft"|| message.content.includes == "Minecraft"){
-    message.channel.send("Minecraft è il gioco più bello del mondo!")
-}
 if(message.content == "chi sono io?"){
     var user = message.member;
     message.channel.send("Tu sei" + user.toString());
 }
 if(message.content.includes == "bot strano" || message.content.includes == "Bot strano"|| message.content.includes == "BOT STRANO"){
       message.channel.send("cosa?");
+}
+if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
+  message.channel.send("Hey SplashBot, come va?")
 }
 });
