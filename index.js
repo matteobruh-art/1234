@@ -180,6 +180,9 @@ if(message.content == "chi sono io?"){
     var user = message.member;
     message.channel.send("Tu sei" + user.toString());
 }
+if(message.content.includes("teo")||message.content.includes("Teo")||message.content.includes("TEO")){
+    message.channel.send("<@" + 736906782571495446 + ">");
+}
 if(message.content.includes == "bot strano" || message.content.includes == "Bot strano"|| message.content.includes == "BOT STRANO"){
       message.channel.send("cosa?");
 }
