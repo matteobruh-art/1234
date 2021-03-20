@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
-const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale"];
+const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -133,7 +133,6 @@ var utenteKick = message.mentions.members.first();
  }
   utenteKick.kick()
   .then(()=> message.channel.send("<@"+ utenteKick + "> kickato"))
-  .then(()=> utenteKick.send("Sei stato kickato da " + server.name));
   }
   if(message.content.startsWith("ban")){
       var utenteBan = message.mentions.members.first();
@@ -150,8 +149,7 @@ var utenteKick = message.mentions.members.first();
           return;
       }
       utenteBan.ban()
-      .then(()=> message.channel.send("<@"+ utenteBan + "> bye bye"))
-      .then(()=> utenteBan.send("Sei stato bannato da " + server.name))
+      .then(()=> message.channel.send("<@"+ utenteBan + "> bye bye"));
   }
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
