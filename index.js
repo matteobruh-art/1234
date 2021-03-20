@@ -191,7 +191,7 @@ if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_M
 
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
-    if(utentekillato == message.author){
+    if(utentekillato == message.member.user){
         message.channel.send("Ma no non ucciderti che sad");
         return;
     }
