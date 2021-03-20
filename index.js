@@ -235,4 +235,17 @@ if(message.content == "!tiaspectosound"){
     }
 
 }
+if(message.content == "!sussound"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("when_the_impostor_is_sus.mp3");
+    })
+    }
+
+}
 });
