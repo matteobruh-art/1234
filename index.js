@@ -222,4 +222,17 @@ if(message.content.startsWith("bot killa")){
 if(message.content.length == "12"){
     message.channel.send("LMAO")
 }
+if(message.content == "!tiaspectosound"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("tispecto.mp3");
+    })
+    }
+
+}
 });
