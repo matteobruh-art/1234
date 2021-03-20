@@ -2,6 +2,7 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
+const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -12,7 +13,7 @@ var embed = new discord.MessageEmbed()
       .setThumbnail("https://images-ext-2.discordapp.net/external/H_kDgZ0pZ5KtvxHEkUhTjEfs3lxKnD_zkWTxXVU1nf0/%3Fsize%3D512/https/cdn.discordapp.com/icons/760184013121257512/a899a4245989567ade6b760756748769.png")
       .setFooter("Scarica oppure ti banno")
       .setTimestamp();
-      var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
+      
 bot.on("message", (message) =>
 {
     
@@ -153,7 +154,7 @@ var utenteKick = message.mentions.members.first();
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
   }
-  if (message.content == "!bruh" || message.content == "!Bruh") {
+  if (message.content == "!join" || message.content == "!Join") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -190,7 +191,7 @@ if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_M
 
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
-    var random = Math.random(messaggikiller.length);
-    message.channel.send(utentekillato.toString() + messaggikiller[random]);
+    const randomessage = Math.floor(Math.random() * messaggikiller.length)
+    message.channel.send(utentekillato.toString() + messaggikiller[randomessage]);
 }
 });
