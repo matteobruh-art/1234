@@ -248,4 +248,17 @@ if(message.content == "!sussound"){
     }
 
 }
+if(message.content == "!stop"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("zitto.mp3");
+    })
+    }
+
+}
 });
