@@ -154,7 +154,7 @@ var utenteKick = message.mentions.members.first();
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
   }
-  if (message.content == "!test" || message.content == "!Join") {
+  if (message.content == "!bruhsound" || message.content == "!Bruhsound") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -164,6 +164,16 @@ var utenteKick = message.mentions.members.first();
         .then(connection => {
             connection.play("bruh.mp3");
     })
+    }
+}
+if (message.content == "!join" || message.content == "!Join") {
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join();
+    
     }
 }
   if(message.content == "Salva"){
@@ -183,7 +193,7 @@ if(message.content == "chi sono io?"){
     message.channel.send("Tu sei" + user.toString());
 }
 if(message.content.includes("teo")||message.content.includes("Teo")||message.content.includes("TEO")){
-    message.channel.send("<@" + 736906782571495446 + ">");
+    message.channel.send("<@736906782571495446>");
 }
 if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
       message.channel.send("cosa?");
