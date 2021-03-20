@@ -2,10 +2,6 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
-client.on("ready", () => {
-
-    client.user.setActivity('Jojo', { type: 'WATCHING' });
-})
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
