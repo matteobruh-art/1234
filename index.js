@@ -154,7 +154,7 @@ var utenteKick = message.mentions.members.first();
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
   }
-  if (message.content == "!bruhsound" || message.content == "!Bruhsound") {
+  if (message.content == "u!bruhsound" || message.content == "u!Bruhsound") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -166,7 +166,7 @@ var utenteKick = message.mentions.members.first();
     })
     }
 }
-if (message.content == "!join" || message.content == "!Join") {
+if (message.content == "u!join" || message.content == "u!Join") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -222,7 +222,7 @@ if(message.content.startsWith("bot killa")){
 if(message.content.length == "12"){
     message.channel.send("LMAO")
 }
-if(message.content == "!tiaspectosound"){ 
+if(message.content == "u!tiaspectosound"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -235,7 +235,7 @@ if(message.content == "!tiaspectosound"){
     }
 
 }
-if(message.content == "!sussound"){ 
+if(message.content == "u!sussound"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -248,7 +248,7 @@ if(message.content == "!sussound"){
     }
 
 }
-if(message.content == "!stop"){ 
+if(message.content == "u!stop"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
