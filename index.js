@@ -2,7 +2,6 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
-var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -15,6 +14,7 @@ var embed = new discord.MessageEmbed()
       .setTimestamp();
 bot.on("message", (message) =>
 {
+    var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
     var data= new Date();
     var ora = data.getHours();
