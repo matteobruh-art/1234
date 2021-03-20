@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
-const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
+const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale"];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
