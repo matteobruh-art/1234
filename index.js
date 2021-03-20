@@ -219,4 +219,7 @@ if(message.content.startsWith("bot killa")){
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
     message.channel.send(utentekillato.toString() + messaggikiller[randomessage]);
 }
+if(message.content.length == "12"){
+    message.channel.send("LMAO")
+}
 });
