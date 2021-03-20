@@ -197,6 +197,7 @@ if(message.content.startsWith("bot killa")){
     }
     if(!utentekillato){
         message.channel.send("E chi?")
+        return;
     }
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
     message.channel.send(utentekillato.toString() + messaggikiller[randomessage]);
