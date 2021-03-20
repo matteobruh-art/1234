@@ -190,7 +190,7 @@ if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_M
 
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
-    var random = Math.floor(Math.random() * messaggikiller.lenght);
-    message.channel.send(messaggikiller[random]);
+    var random = Math.floor(Math.random(0-3) * messaggikiller.lenght);
+    message.channel.send(utentekillato.toString() + messaggikiller[random]);
 }
 });
