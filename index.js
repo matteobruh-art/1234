@@ -12,9 +12,10 @@ var embed = new discord.MessageEmbed()
       .setThumbnail("https://images-ext-2.discordapp.net/external/H_kDgZ0pZ5KtvxHEkUhTjEfs3lxKnD_zkWTxXVU1nf0/%3Fsize%3D512/https/cdn.discordapp.com/icons/760184013121257512/a899a4245989567ade6b760756748769.png")
       .setFooter("Scarica oppure ti banno")
       .setTimestamp();
+      var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
 bot.on("message", (message) =>
 {
-    var messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series"];
+    
 if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
     var data= new Date();
     var ora = data.getHours();
@@ -189,7 +190,7 @@ if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_M
 
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
-    var random = Math.floor(Math.random() * messaggikiller.lenght)
-    message.channel.send(utentekillato.toString() + messaggikiller[random]);
+    var random = Math.floor(Math.random() * messaggikiller.lenght);
+    message.channel.send(messaggikiller[random]);
 }
 });
