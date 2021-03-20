@@ -195,6 +195,9 @@ if(message.content.startsWith("bot killa")){
         message.channel.send("Ma no non ucciderti che sad");
         return;
     }
+    if(!utentekillato){
+        message.channel.send("E chi?")
+    }
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
     message.channel.send(utentekillato.toString() + messaggikiller[randomessage]);
 }
