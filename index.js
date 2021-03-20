@@ -230,7 +230,7 @@ if(message.content == "!tiaspectosound"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("tispecto.mp3");
+            connection.play("tiaspecto.mp3");
     })
     }
 
