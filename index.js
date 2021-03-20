@@ -154,13 +154,16 @@ var utenteKick = message.mentions.members.first();
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
   }
-  if (message.content == "!join" || message.content == "!Join") {
+  if (message.content == "!test" || message.content == "!Join") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
     }
     else{
-        canalevocale.join();
+        canalevocale.join()
+        .then(connection => {
+            connection.play("bruh.mp3");
+    })
     }
 }
   if(message.content == "Salva"){
