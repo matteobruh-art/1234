@@ -18,7 +18,6 @@ var embed = new discord.MessageEmbed()
       
 bot.on("message", (message) =>
 {
-    
 if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
     var data= new Date();
     var ora = data.getHours();
@@ -277,22 +276,3 @@ if(message.content == "u!stop"){
 
 }
 });
-module.exports.run = async (bot, message, args) => {
-    if (!message.member.voice.channel) return message.channel.send('You must be in a voice channel to use this command.');
-    
-    const music = args.join(" ");
-
-    bot.distube.play(message, music)
-}
-
-module.exports.config = {
-    name: "play",
-    aliases: ['p']
-}
-bot.distube
-    .on("playSong", (message, queue, song) => message.channel.send(
-        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`
-	))
-	.on("addSong", (message, queue, song) => message.channel.send(
-        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
-    ))
