@@ -6,7 +6,7 @@ bot.login(process.env.token);
  setInterval( function (){
      var minutes = new Date().getMinutes;
      var hours = new Date().getHours;
-     if(hours == "22" && minutes == "5"){
+     if(hours == "21" && minutes == "7"){
          discord.Client.channels.cache.get("778579852486770699").send(embed);
      
     
