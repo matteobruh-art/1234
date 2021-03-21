@@ -261,7 +261,4 @@ if(message.content == "u!stop"){
     }
 
 }
-if(message.content.includes("dio p") ||message.content.includes("Dio p")){
-    message.delete;
-}
 });
