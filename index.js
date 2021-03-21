@@ -1,7 +1,9 @@
 const discord = require("discord.js");
+const DisTube = require("distube");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
+bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
@@ -275,3 +277,22 @@ if(message.content == "u!stop"){
 
 }
 });
+module.exports.run = async (bot, message, args) => {
+    if (!message.member.voice.channel) return message.channel.send('You must be in a voice channel to use this command.');
+    
+    const music = args.join(" ");
+
+    bot.distube.play(message, music)
+}
+
+module.exports.config = {
+    name: "play",
+    aliases: ['p']
+}
+bot.distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`
+	))
+	.on("addSong", (message, queue, song) => message.channel.send(
+        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    ))
