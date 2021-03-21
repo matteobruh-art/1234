@@ -204,14 +204,8 @@ if(message.content.includes("teo")||message.content.includes("Teo")||message.con
 if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
       message.channel.send("cosa?");
 }
-function uauauau(yes){
-    message.channel.send("Hey Splash Bot, come va?")
-}
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
-  setTimeout("uauauau()", 1000)
-}
-if(message.content == ""){
-
+    message.channel.send("Hey Splash Bot, come va?")
 }
 
 if(message.content.startsWith("bot killa")){
