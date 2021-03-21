@@ -3,6 +3,15 @@ const DisTube = require("distube");
 const bot = new discord.Client;
 
 bot.login(process.env.token);
+ setInterval( function (){
+     var minutes = new Date().getMinutes;
+     var hours = new Date().getHours;
+     if(hours == "22" && minutes == "5"){
+         discord.Client.channels.cache.get("778579852486770699").send(embed);
+     
+    
+     }
+ }, 1000 * 60)
 bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
 const conversazione1 = ["Pk che è successo????", "Io bene grazie", "Noice"]
@@ -200,6 +209,7 @@ if(message.content.includes("teo")||message.content.includes("Teo")||message.con
 if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
       message.channel.send("cosa?");
 }
+
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
     message.channel.send("Hey Splash Bot, come va?")
 }
