@@ -204,7 +204,7 @@ if(message.content.includes("bot strano") || message.content.includes("Bot stran
       message.channel.send("cosa?");
 }
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
-  message.channel.send("Hey SplashBot, come va?")
+  message.channel.send("Hey Splash Bot, come va?")
 }
 
 if(message.content.startsWith("bot killa")){
