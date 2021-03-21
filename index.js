@@ -211,7 +211,7 @@ if(message.content == "Non va per niente bene."){
     })
     .then(msg => {setTimeout(() => {
         message.channel.send(conversazione1[randomcov1])
-    }, timeout=2000)});
+    }, timeout=600)});
    
 }
 if(message.content.startsWith("bot killa")){
