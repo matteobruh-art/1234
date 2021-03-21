@@ -72,7 +72,7 @@ if(message.content.startsWith("bot pulisci la chat")){
 }
 if(message.content == "bot strano fa schifo"){
     message.author.send("cosa hai detto scusa?");
-    message.channel.send("p!ban " + message.author.toString());
+    message.channel.send("-ban " + message.author.toString());
 }
 if(message.content == "cringe"){
     message.channel.send("super cringe");
@@ -205,7 +205,14 @@ if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_M
 }
 if(message.content == "Non va per niente bene."){
     const randomcov1 = Math.floor(Math.random() * conversazione1.length)
-    message.channel.send(conversazione1[randomcov1])
+    message.channel.send("uau")
+    .then(msg => {
+        msg.delete({timeout:0})
+    })
+    .then(msg => {setTimeout(() => {
+        message.channel.send(conversazione1[randomcov1])
+    }, timeout=2000)});
+   
 }
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
