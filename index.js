@@ -222,7 +222,7 @@ if(message.content.startsWith("bot killa")){
 if(message.content.length == "12"){
     message.channel.send("LMAO")
 }
-if(message.content == "u!tiaspectosound"){ 
+if(message.content == "u!tiaspecto"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -235,7 +235,7 @@ if(message.content == "u!tiaspectosound"){
     }
 
 }
-if(message.content == "u!sussound"){ 
+if(message.content == "u!sus"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -244,6 +244,19 @@ if(message.content == "u!sussound"){
         canalevocale.join()
         .then(connection => {
             connection.play("when_the_impostor_is_sus.mp3");
+    })
+    }
+
+}
+if(message.content == "u!giornogiovanna" || message.content == "u!ilventodoro"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("giornogiovanna.mp3");
     })
     }
 
