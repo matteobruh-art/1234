@@ -190,12 +190,9 @@ message.channel.send("Caricamento in corso...")
     message.channel.send("Caricamento completato!")
 }, timeout=2000)});
 }
-function yes(){
+if(message.content == "nice" || message.content == "NICE" || message.content == "Nice"){
     message.channel.send("noice");
     message.channel.send("https://tenor.com/view/noice-nice-click-gif-8843762")
-}
-if(message.content == "nice" || message.content == "NICE" || message.content == "Nice"){
-    setTimeout("yes()", 1500);
 }
 if(message.content == "chi sono io?"){
     var user = message.member;
