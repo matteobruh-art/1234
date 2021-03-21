@@ -5,7 +5,7 @@ const bot = new discord.Client;
 bot.login(process.env.token);
 bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
-const conversazione1 = ["Hey Splash Bot, come va?", "", "3"]
+const conversazione1 = ["Pk che è successo????", "Io bene grazie", "Noice"]
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -105,10 +105,6 @@ if(message.content.startsWith("bot userinfo")){
         var utente = message.mentions.members.first();
     }
 
-if(!utente){
-    message.channel.send("User not found");
-    return;
-}
 var userinfoembed = new discord.MessageEmbed()
    .setTitle(utente.user.tag)
    .setThumbnail(utente.user.avatarURL())
@@ -156,7 +152,7 @@ var utenteKick = message.mentions.members.first();
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["sus.jpg"]});
   }
-  if (message.content == "u!bruhsound" || message.content == "u!Bruhsound") {
+  if (message.content == "u!bruh" || message.content == "u!Bruh") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
         message.channel.send("Non sei dentro in un canale vocale");
@@ -207,7 +203,10 @@ if(message.content.includes("bot strano") || message.content.includes("Bot stran
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
     message.channel.send("Hey Splash Bot, come va?")
 }
-
+if(message.content == "Non va per niente bene."){
+    const randomcov1 = Math.floor(Math.random() * conversazione1.length)
+    message.channel.send(conversazione1[randomcov1])
+}
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
     if(utentekillato == message.member.user){
