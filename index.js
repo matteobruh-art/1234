@@ -5,6 +5,7 @@ const bot = new discord.Client;
 bot.login(process.env.token);
 bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Endere Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F."];
+const conversazione1 = ["Hey Splash Bot, come va?", "", "3"]
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -190,7 +191,10 @@ message.channel.send("Caricamento in corso...")
 }, timeout=2000)});
 }
 if(message.content == "nice" || message.content == "NICE" || message.content == "Nice"){
-    message.channel.send("noice");
+    (msg => {setTimeout(() => {
+        message.channel.send("noice");
+    }, timeout=2000)});
+    
     message.channel.send("https://tenor.com/view/noice-nice-click-gif-8843762")
 }
 if(message.content == "chi sono io?"){
