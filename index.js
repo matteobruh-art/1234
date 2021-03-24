@@ -48,7 +48,7 @@ if(message.content.startsWith("!vote ")){
     var messaggivotati =[' was an impostor', ' was not an impostor']
     var randomvo = Math.floor(Math.random() * messaggivotati.length)
     if(!votato){
-        message.channel.send(message.member.user.username + messaggivotati[randomvo])
+        message.channel.send(message.author.username + messaggivotati[randomvo])
     }
     else{
         message.channel.send(votato.user.username + messaggivotati[randomvo])
