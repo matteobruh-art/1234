@@ -334,7 +334,7 @@ var isGameStarted = false;
 if(message.content == "!startgame"){
     isGameStarted = true
     var memberid = [736906782571495446, 613009588551417856]
-    message.memberid[0].send("sei sus")
-    message.memberid[1].send("non sei sus")
+    message.member(memberid[0]).send("sei sus")
+    message.member[memberid[1]].send("non sei sus")
 }
 });
