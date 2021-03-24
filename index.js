@@ -19,14 +19,17 @@ var embed = new discord.MessageEmbed()
       
 bot.on("message", (message) =>
 {
-    if(message.content == "a"){
-        message.channel.send("/tts among us")
-    }
 if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
     var data= new Date();
     var ora = data.getHours();
     var minuti = data.getMinutes();
-    message.channel.send("sono le "+ ora +":"+minuti);
+    if (minuti < 10){
+  minuti = "0" + minuti
+    }
+    if (ora < 10){
+        ora = "0" + ora
+          }
+    message.channel.send("sono le "+ ora + ":"+minuti);
 }
 if(message.content == "grazie" ){
     message.channel.send("prego!");
