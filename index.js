@@ -303,6 +303,19 @@ if(message.content == "u!marioeluigi" || message.content == "u!marioandluigi"){
     }
 
 }
+if(message.content == "u!emergencymeeting"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("emergencymeeting.mp3");
+    })
+    }
+
+}
 if(message.content == "u!stop"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
