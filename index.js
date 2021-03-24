@@ -217,7 +217,7 @@ if(message.content == "Non va per niente bene."){
 }
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
-    if(utentekillato == message.member.user){
+    if(utentekillato.id == message.author.id){
         message.channel.send("Ma no non ucciderti che sad");
         return;
     }
@@ -226,7 +226,7 @@ if(message.content.startsWith("bot killa")){
         return;
     }
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
-    message.channel.send(utentekillato.toString() + messaggikiller[randomessage]);
+    message.channel.send(utentekillato.user.username + messaggikiller[randomessage]);
 }
 if(message.content.includes("mmm")||message.content.includes("Mmm")||message.content.includes("MMM")){
     message.channel.send("MmMmMmMmM :thinking:")
