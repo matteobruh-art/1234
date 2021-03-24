@@ -333,11 +333,8 @@ if(message.content == "u!stop"){
 var isGameStarted = false;
 if(message.content == "!startgame"){
     isGameStarted = true
-    var membri = server.members
-    message.membri[0].send("sei sus")
-    message.membri[1].send("non sei sus")
-    message.membri[2].send("sei among sus")
-    message.membri[3].send("sei l'impostore")
-    message.membri[4].send("sei il crewmate")
+    var memberid = [736906782571495446, 613009588551417856]
+    message.memberid[0].send("sei sus")
+    message.memberid[1].send("non sei sus")
 }
 });
