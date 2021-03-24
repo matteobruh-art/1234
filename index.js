@@ -329,4 +329,15 @@ if(message.content == "u!stop"){
     }
 
 }
+//among us
+var isGameStarted = false;
+if(message.content == "!startgame"){
+    isGameStarted = true
+    var membri = server.members
+    message.membri[0].send("sei sus")
+    message.membri[1].send("non sei sus")
+    message.membri[2].send("sei among sus")
+    message.membri[3].send("sei l'impostore")
+    message.membri[4].send("sei il crewmate")
+}
 });
