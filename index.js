@@ -19,6 +19,9 @@ var embed = new discord.MessageEmbed()
       
 bot.on("message", (message) =>
 {
+    if(message.content == "a"){
+        message.channel.send("/tts among us")
+    }
 if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
     var data= new Date();
     var ora = data.getHours();
