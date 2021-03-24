@@ -43,6 +43,17 @@ if(message.content == "lol" || message.content == "LOL" || message.content == "l
 if( message.content == "bot aiutami") {
    message.reply("dimmi");
 }
+if(message.content.startsWith("!vote ")){
+    var votato = message.mentions.members.first();
+    var messaggivotati =[' was an impostor', ' was not an impostor']
+    var randomvo = Math.floor(Math.random() * messaggivotati.length)
+    if(!votato){
+        message.channel.send(message.member.user.username + messaggivotati[randomvo])
+    }
+    else{
+        message.channel.send(votato.user.username + messaggivotati[randomvo])
+    }
+}
 if( message.content == "bravo bot") {
     message.reply("Grazie:blush:");
  }
