@@ -218,10 +218,11 @@ if(message.content.includes("bot strano") || message.content.includes("Bot stran
       message.channel.send("cosa?");
 }
 //conversazione
+var splashbot = 821446223114141728;
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
     message.channel.send("Hey Splash BOT, come va?")
 }
-if(message.content == "Non va per niente bene"){
+if(message.content == "Non va per niente bene" && message.author.id == splashbot){
     const randomcov1 = Math.floor(Math.random() * conversazione1.length)
     message.channel.send(".")
     .then(msg => {
@@ -233,7 +234,7 @@ if(message.content == "Non va per niente bene"){
    
 }
 const conversazione2 = ["Anche io", "Uff beato te, la mia console continua a darmi errori", "oc ance io sto moto bene o smeso di nn metere i ;, si vde vro?"];
-if(message.content=="Tutto bene"){
+if(message.content=="Tutto bene" && message.author.id == splashbot){
     const randomcov2 = Math.floor(Math.random() * conversazione2.length)
     message.channel.send(".")
     .then(msg => {
@@ -244,7 +245,7 @@ if(message.content=="Tutto bene"){
     }, timeout=600)});
 }
 const conversazione3 = ["NO!!","'N che senso?","meno male"]
-if(message.content=="Sì"){
+if(message.content=="Sì" && message.author.id == splashbot){
     const randomcov3 = Math.floor(Math.random() * conversazione3.length)
     message.channel.send(".")
     .then(msg => {
