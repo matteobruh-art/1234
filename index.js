@@ -5,7 +5,6 @@ const bot = new discord.Client;
 bot.login(process.env.token);
 bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Ender Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F.", " ha starnutito con gli occhi aperti, quindi gli è schizzato fuori il cervello", " è morto per overdose di meme", " è morto da un esplosione di creeper", " un giorno si svegliò di colpo perché sentì un rumore, scese in cucina e vide Zio Mainardi che mangiava gli spaghetti, così corse subito di sopra ma inciapò nelle scale e morì.", " è morto", " viene hackerato dal suo prof di matematica e muore perché anche lui era un computer ed era collegato tramite un cavo USB al suo PC", " si è ubriacato con la sprite ed è andato in coma etilico", " è andato a sbattere con nyan-cat", " mangiò troppi spaghetti in scatola e morì"];
-const conversazione1 = ["Pk che è successo????", "Io bene grazie", "Noice"]
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
@@ -222,6 +221,8 @@ var splashbot = 821446223114141728;
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
     message.channel.send("Hey Splash BOT, come va?")
 }
+/*Non va per niente bene*/
+const conversazione1 = ["Pk che è successo????", "Io bene grazie", "Noice"]
 if(message.content == "Non va per niente bene" && message.author.id == splashbot){
     const randomcov1 = Math.floor(Math.random() * conversazione1.length)
     message.channel.send(".")
@@ -233,6 +234,7 @@ if(message.content == "Non va per niente bene" && message.author.id == splashbot
     }, timeout=600)});
    
 }
+/*Tutto bene*/
 const conversazione2 = ["Anche io", "Uff beato te, la mia console continua a darmi errori", "oc ance io sto moto bene o smeso di nn metere i ;, si vde vro?"];
 if(message.content=="Tutto bene" && message.author.id == splashbot){
     const randomcov2 = Math.floor(Math.random() * conversazione2.length)
@@ -244,6 +246,7 @@ if(message.content=="Tutto bene" && message.author.id == splashbot){
         message.channel.send(conversazione2[randomcov2])
     }, timeout=600)});
 }
+/*Sì*/
 const conversazione3 = ["NO!!","'N che senso?","meno male"]
 if(message.content=="Sì" && message.author.id == splashbot){
     const randomcov3 = Math.floor(Math.random() * conversazione3.length)
