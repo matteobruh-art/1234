@@ -316,6 +316,19 @@ if(message.content == "u!emergencymeeting"){
     }
 
 }
+if(message.content == "u!mucca"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("mucca.mp3");
+    })
+    }
+
+}
 if(message.content == "u!stop"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
@@ -333,8 +346,6 @@ if(message.content == "u!stop"){
 var isGameStarted = false;
 if(message.content == "!startgame"){
     isGameStarted = true
-    var memberid = [736906782571495446, 613009588551417856]
-    message.member(memberid[0]).send("sei sus")
-    message.member[memberid[1]].send("non sei sus")
+    
 }
 });
