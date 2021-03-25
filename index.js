@@ -349,9 +349,16 @@ if(message.content == "!startgame"){
     
 }
 //8Ball
-const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`"]
+const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`", "`🎱 Dipende...`"]
     if(message.content.startsWith("u!8ball")){
         const EightBallAnswer = Math.floor(Math.random() * EightBall.length)
+        if (message.content.includes("matteo")|| message.content.includes("Matteo")|| message.content.includes("MATTEO")|| message.content.includes("matteO")|| message.content.includes("mattEO")|| message.content.includes("teo")|| message.content.includes("TEO")|| message.content.includes("Teo")|| message.content.includes("<@736906782571495446>")){
+            message.channel.send("non posso riferire informazioni riguardo a 736906782571495446 mi discpiace")
+            return;
+        }
+        if(message.content.includes("CIA")|| message.content.includes("cia")|| message.content.includes("Cia")|| message.content.includes("cIA"|| message.content.includes("ciA")|| message.content.includes("CIa")|| message.content.includes("cIa")|| message.content.includes("CiA")){
+            message.channel.send("non posso fornire informazioni riguardo alla CIA sorry")
+        }
         message.channel.send(EightBall [EightBallAnswer]);
     }
 });
