@@ -348,12 +348,8 @@ if(message.content == "!startgame"){
     isGameStarted = true
     
 }
-  //8Ball
+//8Ball
 const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`"]
-
-bot.on("message", (message) => {
-
-    //8Ball
     if(message.content.startsWith("u!8ball")){
         const EightBallAnswer = Math.floor(Math.random() * EightBall.length)
         message.channel.send(EightBall [EightBallAnswer]);
