@@ -356,7 +356,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             message.channel.send("non posso riferire informazioni riguardo a 736906782571495446 mi discpiace")
             return;
         }
-        if(message.content.includes("CIA")|| message.content.includes("cia")|| message.content.includes("Cia")|| message.content.includes("cIA"|| message.content.includes("ciA")|| message.content.includes("CIa")|| message.content.includes("cIa")|| message.content.includes("CiA")){
+        if(message.content.includes("CIA")|| message.content.includes("cia")|| message.content.includes("Cia")|| message.content.includes("cIA"|| message.content.includes("ciA")|| message.content.includes("CIa")|| message.content.includes("cIa")|| message.content.includes("CiA"))){
             message.channel.send("non posso fornire informazioni riguardo alla CIA sorry")
         }
         message.channel.send(EightBall [EightBallAnswer]);
