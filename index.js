@@ -211,19 +211,19 @@ if(message.content == "chi sono io?"){
     var user = message.member;
     message.channel.send("Tu sei" + user.toString());
 }
-if(message.content.includes("teo")||message.content.includes("Teo")||message.content.includes("TEO")){
+if(message.content.includes(" teo")||message.content.includes(" Teo")||message.content.includes(" TEO")||message.content.includes("matteo")||message.content.includes("MATTEO")||message.content.includes("Matteo")){
     message.channel.send("<@736906782571495446>");
 }
 if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
       message.channel.send("cosa?");
 }
-
+//conversazione
 if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
-    message.channel.send("Hey Splash Bot, come va?")
+    message.channel.send("Hey Splash BOT, come va?")
 }
-if(message.content == "Non va per niente bene."){
+if(message.content == "Non va per niente bene"){
     const randomcov1 = Math.floor(Math.random() * conversazione1.length)
-    message.channel.send("uau")
+    message.channel.send(".")
     .then(msg => {
         msg.delete({timeout:0})
     })
@@ -232,6 +232,29 @@ if(message.content == "Non va per niente bene."){
     }, timeout=600)});
    
 }
+const conversazione2 = ["Anche io", "Uff beato te, la mia console continua a darmi errori", "oc ance io sto moto bene o smeso di nn metere i ;, si vde vro?"];
+if(message.content=="Tutto bene"){
+    const randomcov2 = Math.floor(Math.random() * conversazione2.length)
+    message.channel.send(".")
+    .then(msg => {
+        msg.delete({timeout:0})
+    })
+    .then(msg => {setTimeout(() => {
+        message.channel.send(conversazione2[randomcov2])
+    }, timeout=600)});
+}
+const conversazione3 = ["NO!!","'N che senso?","meno male"]
+if(message.content=="Sì"){
+    const randomcov3 = Math.floor(Math.random() * conversazione3.length)
+    message.channel.send(".")
+    .then(msg => {
+        msg.delete({timeout:0})
+    })
+    .then(msg => {setTimeout(() => {
+        message.channel.send(conversazione3[randomcov3])
+    }, timeout=600)});
+}
+//fine conversazione
 if(message.content.startsWith("bot killa")){
     var utentekillato  = message.mentions.members.first();
     if(utentekillato.id == message.author.id){
