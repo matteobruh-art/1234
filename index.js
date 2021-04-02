@@ -366,11 +366,7 @@ if(message.content == "u!stop"){
 
 }
 //among us
-var isGameStarted = false;
-if(message.content == "!startgame"){
-    isGameStarted = true
-}
-if(message.content.startsWith("!vote") && isGameStarted){
+if(message.content.startsWith("!vote")){
     var votato = message.mentions.members.first();
     var messaggivotati =[' was an impostor', ' was not an impostor', ' was not the impostor',' was the impostor',' was an imposter', ' was not an imposter', ' was not the imposter',' was the imposter',' was the jester, he won']
     var randomvo = Math.floor(Math.random() * messaggivotati.length)
