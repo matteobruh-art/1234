@@ -125,7 +125,7 @@ var userinfoembed = new discord.MessageEmbed()
       if(!useravatar){
           useravatar = message.member;
       }
-      message.channel.send(useravatar.user.avatarURL);
+      message.channel.send(useravatar.user.avatarURL());
   }
   if(message.content.startsWith("kick")){
 var utenteKick = message.mentions.members.first();
