@@ -42,17 +42,6 @@ if(message.content == "lol" || message.content == "LOL" || message.content == "l
 if( message.content == "bot aiutami") {
    message.reply("dimmi");
 }
-if(message.content.startsWith("!vote ")){
-    var votato = message.mentions.members.first();
-    var messaggivotati =[' was an impostor', ' was not an impostor']
-    var randomvo = Math.floor(Math.random() * messaggivotati.length)
-    if(!votato){
-        message.channel.send(message.author.username + messaggivotati[randomvo])
-    }
-    else{
-        message.channel.send(votato.user.username + messaggivotati[randomvo])
-    }
-}
 if( message.content == "bravo bot") {
     message.reply("Grazie:blush:");
  }
@@ -131,6 +120,13 @@ var userinfoembed = new discord.MessageEmbed()
 
    message.channel.send(userinfoembed);
   }
+  if(message.content == "!avatar"){
+      var useravatar = message.mentions.members.first();
+      if(!useravatar){
+          useravatar = message.member;
+      }
+      message.channel.send(useravatar.user.avatarURL);
+  }
   if(message.content.startsWith("kick")){
 var utenteKick = message.mentions.members.first();
  if(!message.member.hasPermission("KICK_MEMBERS")){
@@ -206,7 +202,7 @@ if(message.content == "nice" || message.content == "NICE" || message.content == 
     message.channel.send("noice");
     message.channel.send("https://tenor.com/view/noice-nice-click-gif-8843762")
 }
-if(message.content == "chi sono io?"){
+if(message.content == "chi sono io?"){8
     var user = message.member;
     message.channel.send("Tu sei" + user.toString());
 }
@@ -275,7 +271,7 @@ if(message.content.startsWith("bot killa")){
 if(message.content.includes("mmm")||message.content.includes("Mmm")||message.content.includes("MMM")){
     message.channel.send("MmMmMmMmM :thinking:")
 }
-if(message.content.length == "12"){
+if(message.content.length == "13"){
     message.channel.send("LMAO")
 }
 if(message.content == "u!tiaspecto"){ 
@@ -373,10 +369,20 @@ if(message.content == "u!stop"){
 var isGameStarted = false;
 if(message.content == "!startgame"){
     isGameStarted = true
-    
+}
+if(message.content.startsWith("!vote") && isGameStarted){
+    var votato = message.mentions.members.first();
+    var messaggivotati =[' was an impostor', ' was not an impostor', ' was not the impostor',' was the impostor',' was an imposter', ' was not an imposter', ' was not the imposter',' was the imposter',' was the jester, he won']
+    var randomvo = Math.floor(Math.random() * messaggivotati.length)
+    if(!votato){
+        message.channel.send(message.author.username + messaggivotati[randomvo])
+    }
+    else{
+        message.channel.send(votato.user.username + messaggivotati[randomvo])
+    }
 }
 //8Ball
-const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`", "`🎱 Dipende...`"]
+const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`", "`🎱 Dipende...`", "`🎱 Ah boh se non lo sai tu che ne so io`"];
     if(message.content.startsWith("u!8ball")){
         const EightBallAnswer = Math.floor(Math.random() * EightBall.length)
         if (message.content.includes("matteo")|| message.content.includes("Matteo")|| message.content.includes("MATTEO")|| message.content.includes("matteO")|| message.content.includes("mattEO")|| message.content.includes("teo")|| message.content.includes("TEO")|| message.content.includes("Teo")|| message.content.includes("<@736906782571495446>")){
