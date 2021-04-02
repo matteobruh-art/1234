@@ -121,7 +121,7 @@ var userinfoembed = new discord.MessageEmbed()
    message.channel.send(userinfoembed);
   }
   if(message.content == "!avatar"){
-      var useravatar = message.mentions.members.first();
+var useravatar = message.mentions.members.first();
       if(!useravatar){
           useravatar = message.member;
       }
