@@ -16,9 +16,28 @@ var embed = new discord.MessageEmbed()
       .setFooter("Scarica oppure ti banno")
       .setTimestamp();
       
+var helpembed = new discord.MessageEmbed()
+       .setColor('#000000')
+       .setTitle("Tutti i comandi")
+       .setDescription("Ecco tutti i comandi per Bot Strano")
+       .addField("u!time","Se non sai che ore sono", true)
+       .addField("u!clear 1-100", "Se vuoi cancellare velocemente dei messaggi", true)
+       .addField("u!games", "Se ti va di giocare a dei videogiochi belli", true)
+       .addField("u!serverinfo","Per vedere le info del server", true)
+       .addField("u!userinfo", "Per vedere le info di un utente", true)
+       .addField("u!avatar","Per vedere l'avatr di un utente", true)
+       .addField("u!kick e u!ban","",true)
+       .addField("u!join, u!stop, u!bruh, u!sus, u!tiaspecto, u!mucca, u!emergencymeeting, u!giornogiovanna","Per ascoltare suoni", true)
+       .addField("nice, !sus","Scoprilo", true)
+       .addField("u!8ball","Se vuoi chiedere qualcosa al bot", true)
+       .addField("u!vote","Per votare chi ti sembra sus",true)
+       .setFooter("Ce ne sono alcuni segreti");
 bot.on("message", (message) =>
 {
-if(message.content == "bot che ore sono?"|| message.content == "bot che ora è?"|| message.content == "bot che ora è" || message.content == "bot che ore sono" ) {
+if(message.content == "u!help"){
+    message.channel.send(helpembed)
+}
+if(message.content == "u!time" ) {
     var data= new Date();
     var ora = data.getHours();
     var minuti = data.getMinutes();
@@ -39,9 +58,6 @@ if( message.content == "thanks" ){
 if(message.content == "lol" || message.content == "LOL" || message.content == "lel" || message.content == "lul" ){
     message.channel.send("lmao");
 }
-if( message.content == "bot aiutami") {
-   message.reply("dimmi");
-}
 if( message.content == "bravo bot") {
     message.reply("Grazie:blush:");
  }
@@ -51,7 +67,7 @@ if( message.content == "bravo bot") {
  if(message.content == "rido" || message.content =="RIDO"){
     message.channel.send("CRINGE");
 }
-if(message.content.startsWith("bot pulisci la chat")){
+if(message.content.startsWith("u!clear")){
     if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.send("non hai il permesso!");
         return
@@ -83,10 +99,10 @@ if(message.content == "cringe"){
     message.channel.send("super cringe");
 }
 
-if(message.content == "bot ho voglia di giocare" || message.content == "bot giochi"|| message.content == "bot voglio i giochi"){
+if(message.content == "u!games"){
     message.channel.send(embed);
 }
-if(message.content == "bot serverinfo"){
+if(message.content == "u!serverinfo"){
   var server = message.member.guild;
   var usernumber = server.memberCount;
   var serverdate = server.createdAt;
@@ -102,8 +118,8 @@ if(message.content == "bot serverinfo"){
      .addField("Server created on", serverdate.toDateString(), true);
      message.channel.send(serverinfoembed);
 }
-if(message.content.startsWith("bot userinfo")){
-    if (message.content == "bot userinfo"){
+if(message.content.startsWith("u!userinfo")){
+    if (message.content == "u!userinfo"){
         var utente = message.member;
     }
     else {
@@ -120,14 +136,16 @@ var userinfoembed = new discord.MessageEmbed()
 
    message.channel.send(userinfoembed);
   }
-  if(message.content == "!avatar"){
-var useravatar = message.mentions.members.first();
-      if(!useravatar){
-          useravatar = message.member;
-      }
-      message.channel.send(useravatar.user.avatarURL());
+if(message.content == "u!avatar"){
+    if (message.content == "u!avatar"){
+        var utenteavater = message.member;
+    }
+    else {
+        var utenteavatar = message.mentions.members.first();
+    }
+    message.channel.send(utenteavatar.user.avatarURL())
   }
-  if(message.content.startsWith("kick")){
+  if(message.content.startsWith("u!kick")){
 var utenteKick = message.mentions.members.first();
  if(!message.member.hasPermission("KICK_MEMBERS")){
      message.channel.send("No");
@@ -144,7 +162,7 @@ var utenteKick = message.mentions.members.first();
   utenteKick.kick()
   .then(()=> message.channel.send("<@"+ utenteKick + "> kickato"))
   }
-  if(message.content.startsWith("ban")){
+  if(message.content.startsWith("u!ban")){
       var utenteBan = message.mentions.members.first();
       if(!message.member.hasPermission("BAN_MEMBERS")){
           message.channel.send("no");
@@ -185,18 +203,6 @@ if (message.content == "u!join" || message.content == "u!Join") {
         canalevocale.join();
     
     }
-}
-  if(message.content == "Salva"){
-    message.channel.send("Salvataggio in corso...")
-    .then(msg => {setTimeout(() => {
-        message.channel.send("Salvataggio completato!")
-    }, timeout=2000)});
-}
-if(message.content == "Carica"){
-message.channel.send("Caricamento in corso...")
-.then(msg => {setTimeout(() => {
-    message.channel.send("Caricamento completato!")
-}, timeout=2000)});
 }
 if(message.content == "nice" || message.content == "NICE" || message.content == "Nice"){
     message.channel.send("noice");
@@ -255,7 +261,12 @@ if(message.content=="Sì" && message.author.id == splashbot){
     }, timeout=600)});
 }
 //fine conversazione
-if(message.content.startsWith("bot killa")){
+//dissociamento
+if(message.content.includes("ebrei")||message.content.includes("ebreo")||message.content.includes("Ebrei")||message.content.includes("Ebreo")||message.content.includes("hitler")||message.content.includes("Hitler")){
+    message.channel.send("Nooooo mi dissocio")
+    message.delete()
+}
+if(message.content.startsWith("u!kill")){
     var utentekillato  = message.mentions.members.first();
     if(utentekillato.id == message.author.id){
         message.channel.send("Ma no non ucciderti che sad");
@@ -366,7 +377,7 @@ if(message.content == "u!stop"){
 
 }
 //among us
-if(message.content.startsWith("!vote")){
+if(message.content.startsWith("u!vote")){
     var votato = message.mentions.members.first();
     var messaggivotati =[' was an impostor', ' was not an impostor', ' was not the impostor',' was the impostor',' was an imposter', ' was not an imposter', ' was not the imposter',' was the imposter',' was the jester, he won']
     var randomvo = Math.floor(Math.random() * messaggivotati.length)
