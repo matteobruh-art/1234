@@ -16,7 +16,11 @@ var embed = new discord.MessageEmbed()
       .setFooter("Scarica oppure ti banno")
       .setTimestamp();
       
-var helpembed = new discord.MessageEmbed()
+bot.on("message", (message) =>
+{
+if(message.content == "u!help"){
+    var servers = message.member.guild
+    var helpembed = new discord.MessageEmbed()
        .setColor('#000000')
        .setTitle("Tutti i comandi")
        .setDescription("Ecco tutti i comandi per Bot Strano")
@@ -31,10 +35,8 @@ var helpembed = new discord.MessageEmbed()
        .addField("nice, !sus","Scoprilo", true)
        .addField("u!8ball","Se vuoi chiedere qualcosa al bot", true)
        .addField("u!vote","Per votare chi ti sembra sus",true)
+       .setThumbnail(servers.iconURL())
        .setFooter("Ce ne sono alcuni segreti");
-bot.on("message", (message) =>
-{
-if(message.content == "u!help"){
     message.channel.send(helpembed)
 }
 if(message.content == "u!time" ) {
