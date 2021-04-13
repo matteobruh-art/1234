@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const DisTube = require("distube");
 const bot = new discord.Client;
-const mongoose = require.length("mongoose");
+const mongoose = require("mongoose");
 
 mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 
