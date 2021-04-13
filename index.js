@@ -29,7 +29,7 @@ if(message.content == "u!help"){
        .addField("u!games", "Se ti va di giocare a dei videogiochi belli", true)
        .addField("u!serverinfo","Per vedere le info del server", true)
        .addField("u!userinfo", "Per vedere le info di un utente", true)
-       .addField("u!avatar","Per vedere l'avatr di un utente", true)
+       .addField("u!avatar","Per vedere l'avatar di un utente", true)
        .addField("u!kick e u!ban","Per bannare e kickare",true)
        .addField("u!join, u!stop, u!bruh, u!sus, u!tiaspecto, u!mucca, u!emergencymeeting, u!giornogiovanna","Per ascoltare suoni", true)
        .addField("nice, !sus","Scoprilo", true)
@@ -78,7 +78,7 @@ if(message.content.startsWith("u!clear")){
        message.channel.send("non ho il permesso");
        return;
    }
-   var count = message.content.slice(19);
+   var count = message.content.slice(8);
    count = parseInt(count);
 
    if(!count || count > 100){
@@ -138,9 +138,9 @@ var userinfoembed = new discord.MessageEmbed()
 
    message.channel.send(userinfoembed);
   }
-if(message.content == "u!avatar"){
+if(message.content.startsWith("u!avatar")){
     if (message.content == "u!avatar"){
-        var utenteavater = message.member;
+        var utenteavatar = message.member;
     }
     else {
         var utenteavatar = message.mentions.members.first();
