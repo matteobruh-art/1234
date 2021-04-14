@@ -201,7 +201,7 @@ var utenteKick = message.mentions.members.first();
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("bruh.mp3");
+            connection.play("./Audio/bruh.mp3");
     })
     }
 }
@@ -304,7 +304,7 @@ if(message.content == "u!tiaspecto"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("tiaspecto.mp3");
+            connection.play("./Audio/tiaspecto.mp3");
     })
     }
 
@@ -317,7 +317,7 @@ if(message.content == "u!sus"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("when_the_impostor_is_sus.mp3");
+            connection.play("./Audio/when_the_impostor_is_sus.mp3");
     })
     }
 
@@ -330,7 +330,7 @@ if(message.content == "u!giornogiovanna" || message.content == "u!ilventodoro"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("giornogiovanna.mp3");
+            connection.play("./Audio/giornogiovanna.mp3");
     })
     }
 
@@ -343,7 +343,7 @@ if(message.content == "u!marioeluigi" || message.content == "u!marioandluigi"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("marioeluigi.mp3");
+            connection.play("./Audio/marioeluigi.mp3");
     })
     }
 
@@ -356,7 +356,7 @@ if(message.content == "u!emergencymeeting"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("emergencymeeting.mp3");
+            connection.play("./Audio/emergencymeeting.mp3");
     })
     }
 
@@ -369,7 +369,7 @@ if(message.content == "u!mucca"){
     else{
         canalevocale.join()
         .then(connection => {
-            connection.play("mucca.mp3");
+            connection.play("./Audio/mucca.mp3");
     })
     }
 
@@ -417,14 +417,18 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(!message.guild) return
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
-       const hasLevelUp =  Levels.appendXp(message.author.id, message.guild.id, randomxp);
+       var hasLevelUp=false;
+       var xplevel = 2007
+       if(Levels.xp == xplevel){
+           hasLevelUp
+       }
        if(hasLevelUp){
        const userlevel = Levels.fetch(message.author.id, message.guild.id);
-       message.channel.send(userlevel.toString() + 'sei salito al livello ${user.level}!')
+       message.channel.send(userlevel + 'sei salito al livello '+user.level)
        }
        if(message.content == 'u!rank'){
            const userlevel =  Levels.fetch(message.author.id, message.guild.id);
-           message.channel.send('Sei al livello **${user.level}**')
+           message.channel.send('Sei al livello '+user.level)
        }
        if(message.content == 'u!lb'){
            const rawLeaderboard =  Levels.fetchLeaderboard(message.guild.id, 10);
@@ -435,6 +439,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
            const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
    
            const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
-           message.channel.send('${lb.join("\n\n")}')
+           message.channel.send(lb.join("\n\n"))
        }
 });
