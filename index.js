@@ -417,14 +417,9 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(!message.guild) return
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
-       var hasLevelUp=false;
-       var xplevel = 2007
-       if(Levels.xp == xplevel){
-           hasLevelUp
-       }
+       const hasLevelUp =  Levels.appendXp(message.author.id, message.guild.id, randomxp);
        if(hasLevelUp){
        const userlevel = Levels.fetch(message.author.id, message.guild.id);
-       message.channel.send(userlevel + 'sei salito al livello '+user.level)
        }
        if(message.content == 'u!rank'){
            const userlevel =  Levels.fetch(message.author.id, message.guild.id);
@@ -439,6 +434,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
            const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
    
            const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
-           message.channel.send(lb.join("\n\n"))
+           message.channel.send('${lb.join("\n\n")}')
        }
 });
