@@ -2,7 +2,10 @@ const discord = require("discord.js");
 const DisTube = require("distube");
 const bot = new discord.Client;
 const mongoose = require("mongoose");
+const Levels = require('discord-xp');
+const { raw } = require("mysql");
 
+Levels.setURL('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data')
 mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', 
 {useNewUrlParser: true, useUnifiedTopology: true})
 bot.login(process.env.token);
@@ -409,5 +412,27 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             return;
         }
         message.channel.send(EightBall [EightBallAnswer]);
+    }
+    //level
+    const randomxp = Math.floor(Math.random() * 15);
+    const hasLevelUp = await Levels.appendXp(message.author.id, message.guild.id, randomxp);
+    if(hasLevelUp){
+    const userlevel = await Levels.fetch(message.author.id, message.guild.id);
+    message.channel.send(userlevel.toString() + 'sei salito al livello ${user.level}!')
+    }
+    if(message.content == 'u!rank'){
+        const userlevel = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send('Sei al livello **${user.level}**')
+    }
+    if(message.content == 'u!lb'){
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
+        if(rawLeaderboard.length < 1){
+            message.channel.send('nessuno ha mai scritto')
+             return ;
+}
+        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+
+        const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
+        message.channel.send('${lb.join("\n\n")}')
     }
 });
