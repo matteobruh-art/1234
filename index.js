@@ -191,7 +191,7 @@ var utenteKick = message.mentions.members.first();
       .then(()=> message.channel.send("<@"+ utenteBan + "> bye bye"));
   }
   if(message.content == "!sus"){
-      message.channel.send("sus", {files: ["sus.jpg"]});
+      message.channel.send("sus", {files: ["./Image/sus.jpg"]});
   }
   if (message.content == "u!bruh" || message.content == "u!Bruh") {
     var canalevocale = message.member.voice.channel;
