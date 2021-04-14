@@ -1,11 +1,9 @@
 const discord = require("discord.js");
 const DisTube = require("distube");
 const bot = new discord.Client;
-const Schema = require('./Schema');
 const mongoose = require("mongoose");
-const { schema } = require("./Schema");
 
-mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Economy', 
+mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', 
 {useNewUrlParser: true, useUnifiedTopology: true})
 bot.login(process.env.token);
 
@@ -411,35 +409,5 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             return;
         }
         message.channel.send(EightBall [EightBallAnswer]);
-    }
-    //economy
-    Client.bal = (id) => new Promise(async ful => {
-        const data= await Schema.findOne({id});
-        if(!data) return ful(0);
-        ful(data.coins);
-    })
-    Client.Add = (id,coins) => {
-        Schema.findOne({id}, async(err, data) => {
-            if(err) throw err;
-            if(data) {
-                data.coins += coins;
-            }
-            else{
-                data = new Schema({id, coins})
-            }
-            data.save();
-        })
-    }
-    Client.rmv = (id,coins) => {
-        Schema.findOne({id}, async(err, data) => {
-            if(err) throw err;
-            if(data) {
-                data.coins -= coins;
-            }
-            else{
-                data = new Schema({id, coins: -coins })
-            }
-            data.save();
-        })
     }
 });
