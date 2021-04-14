@@ -422,7 +422,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        const userlevel = Levels.fetch(message.author.id, message.guild.id);
        }
        if(message.content == 'u!rank'){
-           const userlevel =  Levels.fetch(message.author.id, message.guild.id);
+           const userlevel =  Levels.fetch(message.author.id, message.guild.id, level);
            message.channel.send('Sei al livello '+ Levels.userlevel.level)
        }
        if(message.content == 'u!lb'){
