@@ -414,6 +414,8 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         message.channel.send(EightBall [EightBallAnswer]);
     }
        //level
+       if(!message.guild) return
+       if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
        const hasLevelUp =  Levels.appendXp(message.author.id, message.guild.id, randomxp);
        if(hasLevelUp){
