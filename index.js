@@ -413,7 +413,11 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         }
         message.channel.send(EightBall [EightBallAnswer]);
     }
-    //level
+   
+});
+bot.on(bot.on("message", async message =>
+{
+      //level
     const randomxp = Math.floor(Math.random() * 15);
     const hasLevelUp = await Levels.appendXp(message.author.id, message.guild.id, randomxp);
     if(hasLevelUp){
@@ -435,4 +439,4 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
         message.channel.send('${lb.join("\n\n")}')
     }
-});
+}))
