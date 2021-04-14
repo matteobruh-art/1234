@@ -5,7 +5,6 @@ const Schema = require('./Schema');
 const mongoose = require("mongoose");
 const { schema } = require("./Schema");
 
-mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Economy', 
 {useNewUrlParser: true, useUnifiedTopology: true})
 bot.login(process.env.token);
