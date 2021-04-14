@@ -413,30 +413,26 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         }
         message.channel.send(EightBall [EightBallAnswer]);
     }
+       //level
+       const randomxp = Math.floor(Math.random() * 15);
+       const hasLevelUp =  Levels.appendXp(message.author.id, message.guild.id, randomxp);
+       if(hasLevelUp){
+       const userlevel = Levels.fetch(message.author.id, message.guild.id);
+       message.channel.send(userlevel.toString() + 'sei salito al livello ${user.level}!')
+       }
+       if(message.content == 'u!rank'){
+           const userlevel =  Levels.fetch(message.author.id, message.guild.id);
+           message.channel.send('Sei al livello **${user.level}**')
+       }
+       if(message.content == 'u!lb'){
+           const rawLeaderboard =  Levels.fetchLeaderboard(message.guild.id, 10);
+           if(rawLeaderboard.length < 1){
+               message.channel.send('nessuno ha mai scritto')
+                return ;
+   }
+           const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
    
+           const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
+           message.channel.send('${lb.join("\n\n")}')
+       }
 });
-bot.on(bot.on("message", async message =>
-{
-      //level
-    const randomxp = Math.floor(Math.random() * 15);
-    const hasLevelUp = await Levels.appendXp(message.author.id, message.guild.id, randomxp);
-    if(hasLevelUp){
-    const userlevel = await Levels.fetch(message.author.id, message.guild.id);
-    message.channel.send(userlevel.toString() + 'sei salito al livello ${user.level}!')
-    }
-    if(message.content == 'u!rank'){
-        const userlevel = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send('Sei al livello **${user.level}**')
-    }
-    if(message.content == 'u!lb'){
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
-        if(rawLeaderboard.length < 1){
-            message.channel.send('nessuno ha mai scritto')
-             return ;
-}
-        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
-
-        const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
-        message.channel.send('${lb.join("\n\n")}')
-    }
-}))
