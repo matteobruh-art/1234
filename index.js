@@ -40,7 +40,7 @@ if(message.content == "u!help"){
        .addField("u!userinfo", "Per vedere le info di un utente", true)
        .addField("u!avatar","Per vedere l'avatar di un utente", true)
        .addField("u!kick e u!ban","Per bannare e kickare",true)
-       .addField("u!join, u!stop, u!bruh, u!sus, u!tiaspecto, u!mucca, u!emergencymeeting, u!giornogiovanna","Per ascoltare suoni", true)
+       .addField("u!join, u!stop, u!bruh, u!sus, u!notsus, u!tiaspecto, u!mucca, u!emergencymeeting, u!giornogiovanna","Per ascoltare suoni", true)
        .addField("nice, !sus","Scoprilo", true)
        .addField("u!8ball","Se vuoi chiedere qualcosa al bot", true)
        .addField("u!vote","Per votare chi ti sembra sus",true)
@@ -322,6 +322,19 @@ if(message.content == "u!sus"){
     }
 
 }
+if(message.content == "u!notsus"){ 
+    var canalevocale = message.member.voice.channel;
+    if(!canalevocale){
+        message.channel.send("Non sei dentro in un canale vocale");
+    }
+    else{
+        canalevocale.join()
+        .then(connection => {
+            connection.play("./Audio/notsus.mp3");
+    })
+    }
+
+}
 if(message.content == "u!giornogiovanna" || message.content == "u!ilventodoro"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
@@ -425,15 +438,5 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
            const userlevel =  Levels.fetch(message.author.id, message.guild.id);
            message.channel.send('Sei al livello '+ Levels.userlevel.level)
        }
-       if(message.content == 'u!lb'){
-           const rawLeaderboard =  Levels.fetchLeaderboard(message.guild.id, 10);
-           if(rawLeaderboard.length < 1){
-               message.channel.send('nessuno ha mai scritto')
-                return ;
-   }
-           const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
-   
-           const lb = leaderboard.map(e => '${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.Level}\nXP: ${e.xp.toLocateString()}');
-           message.channel.send('${lb.join("\n\n")}')
-       }
-});
+       
+    });
