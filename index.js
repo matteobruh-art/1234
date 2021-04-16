@@ -279,12 +279,12 @@ if(message.content.includes("ebrei")||message.content.includes("ebreo")||message
 }
 if(message.content.startsWith("u!kill")){
     var utentekillato  = message.mentions.members.first();
-    if(utentekillato.id == message.author.id){
-        message.channel.send("Ma no non ucciderti che sad");
-        return;
-    }
     if(!utentekillato){
         message.channel.send("E chi?")
+        return;
+    }
+    if(utentekillato.id == message.author.id){
+        message.channel.send("Ma no non ucciderti che sad");
         return;
     }
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
