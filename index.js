@@ -18,12 +18,13 @@ var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
       .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
       .setURL("https://sites.google.com/view/giochidimatteo/scarica")
-      .setDescription("Solo per PC")
-      .addField("Gioco v1.1", "Gioca al famoso gioco arcade Breakout, ma molto più difficile", false)
-      .addField("DEMO", "Evita le dinamiti e ottieni il puntegio più alto (o più basso) di tutti", false)
+      .addField("Breakout (pc, android e itch.io", "Gioca al famoso gioco arcade Breakout, ma molto più difficile", false)
+      .addField("Boom (pc)", "Evita le dinamiti e ottieni il puntegio più alto (o più basso) di tutti", false)
+      .addField("Flappy Sus (pc e android)", "Schiva i tubi e ottieni punti facendo volare l'impostore", false)
+      .addField("Elon vs Billionaires (pc e itch.io)", "Gioca al gioco non ufficiale di Elon Musk, sconfiggi gli altri miliardari, sblocca skin e porta i Dogecoin TO THE MOON, o forse meglio dire TO MARS", false)
+      .addField("Link itch.io", "Breakout: https://oxomatteoxo.itch.io/breakout e Elon vs Billionaires: https://oxomatteoxo.itch.io/elon", false)
       .setThumbnail("https://images-ext-2.discordapp.net/external/H_kDgZ0pZ5KtvxHEkUhTjEfs3lxKnD_zkWTxXVU1nf0/%3Fsize%3D512/https/cdn.discordapp.com/icons/760184013121257512/a899a4245989567ade6b760756748769.png")
-      .setFooter("Scarica oppure ti banno")
-      .setTimestamp();
+      .setFooter("Scarica oppure ti banno e visita il canale di SplashGamer011");
       
 bot.on("message", (message) =>
 {
