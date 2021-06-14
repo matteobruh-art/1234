@@ -451,6 +451,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             var numxp = message.content.slice(8)
             var serverid = message.guild.id
             Levels.setXp(usertoxp, serverid, numxp)
-            message.channel.send( "<@usertoxp> ora hai " + numxp + " xp")
+            message.channel.send( "<@"+ usertoxp + "> ora hai " + numxp + " xp")
        }
     });
