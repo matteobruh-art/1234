@@ -439,6 +439,20 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.content.startsWith("u!xpfor")){
            var levelind = message.content.slice(8);
            var xpforlevel = Levels.xpFor(levelind);
+           if(xpforlevel = Int16Array)
+           {
            message.channel.send("Per il livello " + levelind + " servono " + xpforlevel + "  xp")
+           }
+        }
+       if(message.content.startsWith("u!setxp"))
+       {
+            if(!message.member.hasPermission("BAN_MEMBERS")){
+                message.channel.send("Non puoi")
+                return
+            }
+            var usertoxp = message.author.id
+            var numxp = message.content.slice(8)
+            Levels.setXp(usertoxp,server.id,numxp)
+            message.channel.send( "<@usertoxp> ora hai " + numxp + " xp")
        }
     });
