@@ -453,10 +453,4 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             Levels.setXp(usertoxp, serverid, numxp)
             message.channel.send( "<@"+ usertoxp + "> ora hai " + numxp + " xp")
        }
-       if(message.content == "u!rank"){
-           var idutente = message.member.id
-           var serverid_ = message.guild.id
-           var xputente = Levels.fetch(idutente,serverid_,true)
-           console.log(xputente)
-       }
     });
