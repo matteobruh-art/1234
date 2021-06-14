@@ -23,6 +23,7 @@ var embed = new discord.MessageEmbed()
       .addField("Flappy Sus (pc e android)", "Schiva i tubi e ottieni punti facendo volare l'impostore", false)
       .addField("Elon vs Billionaires (pc e itch.io)", "Gioca al gioco non ufficiale di Elon Musk, sconfiggi gli altri miliardari, sblocca skin e porta i Dogecoin TO THE MOON, o forse meglio dire TO MARS", false)
       .addField("Link itch.io", "Breakout: https://oxomatteoxo.itch.io/breakout e Elon vs Billionaires: https://oxomatteoxo.itch.io/elon", false)
+      .setURL("https://oxomatteoxo.itch.io")
       .setThumbnail("https://images-ext-2.discordapp.net/external/H_kDgZ0pZ5KtvxHEkUhTjEfs3lxKnD_zkWTxXVU1nf0/%3Fsize%3D512/https/cdn.discordapp.com/icons/760184013121257512/a899a4245989567ade6b760756748769.png")
       .setFooter("Scarica oppure ti banno e visita il canale di SplashGamer011");
       
@@ -435,9 +436,9 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(hasLevelUp){
        const userlevel = Levels.fetch(message.author.id, message.guild.id);
        }
-       if(message.content == 'u!rank'){
-           const userlevel =  Levels.fetch(message.author.id, message.guild.id);
-           message.channel.send('Sei al livello '+ Levels.userlevel.level)
+       if(message.startsWith("u!levelfor")){
+           var levelind = message.content.slice(11);
+           var xpforlevel = Levels.xpFor(levelind);
+           message.channel.send("Per il livello " + levelind + " servono " + xpforlevel + "  xp")
        }
-       
     });
