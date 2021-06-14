@@ -457,6 +457,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
            var idutente = message.member.id
            var serverid_ = message.guild.id
            var xputente = Levels.fetch(idutente,serverid_,true)
-           message.channel.send(xputente)
+           message.channel.send(xputente.xp)
        }
     });
