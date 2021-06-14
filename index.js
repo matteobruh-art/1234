@@ -436,8 +436,8 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(hasLevelUp){
        const userlevel = Levels.fetch(message.author.id, message.guild.id);
        }
-       if(message.startsWith("u!levelfor")){
-           var levelind = message.content.slice(11);
+       if(message.content.startsWith("u!xpfor")){
+           var levelind = message.content.slice(8);
            var xpforlevel = Levels.xpFor(levelind);
            message.channel.send("Per il livello " + levelind + " servono " + xpforlevel + "  xp")
        }
