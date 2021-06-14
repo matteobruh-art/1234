@@ -456,7 +456,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.content == "u!lb"){
            var serverid_ = message.guild.id
            var lb = Levels.fetchLeaderboard(serverid_, 10 );
-           var truelb = Levels.computeLeaderboard(discord.Client, lb, true);
+           var truelb = Levels.computeLeaderboard(bot, lb);           
            message.channel.send(truelb)
        }
     });
