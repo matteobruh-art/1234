@@ -439,10 +439,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.content.startsWith("u!xpfor")){
            var levelind = message.content.slice(8);
            var xpforlevel = Levels.xpFor(levelind);
-           if(xpforlevel = Int16Array)
-           {
            message.channel.send("Per il livello " + levelind + " servono " + xpforlevel + "  xp")
-           }
         }
        if(message.content.startsWith("u!setxp"))
        {
@@ -452,7 +449,8 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             }
             var usertoxp = message.author.id
             var numxp = message.content.slice(8)
-            Levels.setXp(usertoxp,server.id,numxp)
+            var serverid = server.id
+            Levels.setXp(usertoxp, serverid, numxp)
             message.channel.send( "<@usertoxp> ora hai " + numxp + " xp")
        }
     });
