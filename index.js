@@ -129,6 +129,9 @@ if(message.content == "u!serverinfo"){
      .addField("Server region", server.region, true)
      .addField("Server roles", server.roles.cache.size, true)
      .addField("Server created on", serverdate.toDateString(), true);
+
+
+
      message.channel.send(serverinfoembed);
 }
 if(message.content.startsWith("u!userinfo")){
@@ -295,9 +298,6 @@ if(message.content.startsWith("u!kill")){
 if(message.content.includes("mmm")||message.content.includes("Mmm")||message.content.includes("MMM")){
     message.channel.send("MmMmMmMmM :thinking:")
 }
-if(message.content.length == "13"){
-    message.channel.send("LMAO")
-}
 if(message.content == "u!tiaspecto"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
@@ -429,6 +429,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         message.channel.send(EightBall [EightBallAnswer]);
     }
        //level
+       var database = mongoose.mongo.Db("Data")
        if(!message.guild) return
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
@@ -453,10 +454,10 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             Levels.setXp(usertoxp, serverid, numxp)
             message.channel.send( "<@"+ usertoxp + "> ora hai " + numxp + " xp")
        }
-       if(message.content == "u!lb"){
-           var serverid_ = message.guild.id
-           var lb = Levels.fetchLeaderboard(serverid_, 10 );
-           var truelb = Levels.computeLeaderboard(bot, lb);           
-           message.channel.send(truelb)
+       if(message.content == "u!rank"){
+           database.collection("levels").find({ userID: message.member.id}).toArray(function(err, result){
+                message.channel.send("You have " + result[0].xp + " xp, so you are level " + result[0].level)
+           })
        }
+
     });
