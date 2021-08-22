@@ -442,4 +442,19 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
          message.channel.send("'" + message.content.slice(18) + "' added to the database");
         }
        })}
+       mongoclient.connect(url, function (err, db){
+        if (err) {
+            message.channel.send("ERROR: " + err);
+            console.error('ERROR: ', err);
+        } else {
+            const database = db.db("Data");
+            database.collection("levels").find({id: message.member.id}).toArray(function(err, result){
+                if(err){
+                    database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp: 0})
+                }
+                else{
+                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: xp++}})   
+                }
+            })
+            }})
     });
