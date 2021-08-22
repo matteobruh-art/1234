@@ -455,9 +455,13 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
                 }
                 else{
                     console.log(result)
-                    database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp:0})
+                    var s = []
+                    if(result == s){
+                        database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp:0})
+                    }
                     
-                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: +1}})   
+                    var sus = result[0].xp + 5;
+                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: sus}})   
                 }
             })
             }})
