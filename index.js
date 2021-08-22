@@ -427,12 +427,12 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         message.channel.send(EightBall [EightBallAnswer]);
     }
        //level
-       
+       var url = "mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data"
     if(!message.guild) return
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
        if(message.content.startsWith("u!learn greetings ")){
-       mongoclient.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', { useNewUrlParse: true, useUnifiedTopology: true}, function(err,db){
+       mongoclient.connect(url, { useNewUrlParse: true, useUnifiedTopology: true}, function (err, db){
     var database = db.db("Data")
          database.collection("Words").insertOne({category: "greetings", frase: message.content.slice(18) })
          message.channel.send("'" + message.content.slice(18) + "' added to the database")
