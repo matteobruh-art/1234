@@ -455,7 +455,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
                 }
                 else{
                     console.log(result)
-                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: xp++}})   
+                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: +1}})   
                 }
             })
             }})
