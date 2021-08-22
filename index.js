@@ -454,7 +454,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
                     message.channel.send("ERROR: " + err)
                 }
                 else{
-                    console.log(result)
                     var s = []
                     if(result == s){
                         database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp:1})
