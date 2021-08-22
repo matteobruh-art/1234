@@ -451,10 +451,12 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             database.collection("levels").find({id: message.member.id}).toArray(function(err, result){
                 if(err){
                     console.console.error(err);
-                    database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp: 0})
+                    message.channel.send("ERROR: " + err)
                 }
                 else{
-                    console.log(result)
+                    if(result == null || result == []){
+                        database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp:0})
+                    }
                     database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: +1}})   
                 }
             })
