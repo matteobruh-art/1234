@@ -438,7 +438,6 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             console.error('ERROR: ', err);
         } else {
         const database = db.db("Learn");
-        database.createCollection("Words");
          database.collection("Words").insertOne({category: "greetings", frase: message.content.slice(18) });
          message.channel.send("'" + message.content.slice(18) + "' added to the database");
         }
