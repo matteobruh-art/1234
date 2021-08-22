@@ -1,13 +1,10 @@
 const discord = require("discord.js");
 const DisTube = require("distube");
 const bot = new discord.Client;
-const mongoose = require("mongoose");
-const Levels = require('discord-xp');
-const { raw } = require("mysql");
+const mongoclient = require("mongodb").MongoClient
 
-Levels.setURL('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data')
-mongoose.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', 
-{useNewUrlParser: true, useUnifiedTopology: true})
+
+
 bot.login(process.env.token);
 
 bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
@@ -29,6 +26,7 @@ var embed = new discord.MessageEmbed()
       
 bot.on("message", (message) =>
 {
+
 if(message.content == "u!help"){
     var servers = message.member.guild
     var helpembed = new discord.MessageEmbed()
@@ -429,35 +427,14 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
         message.channel.send(EightBall [EightBallAnswer]);
     }
        //level
-       var database = mongoose.mongo.Db("Data")
-       if(!message.guild) return
+       
+    if(!message.guild) return
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
-       const hasLevelUp =  Levels.appendXp(message.author.id, message.guild.id, randomxp);
-       if(hasLevelUp){
-       const userlevel = Levels.fetch(message.author.id, message.guild.id);
-       }
-       if(message.content.startsWith("u!xpfor")){
-           var levelind = message.content.slice(8);
-           var xpforlevel = Levels.xpFor(levelind);
-           message.channel.send("Per il livello " + levelind + " servono " + xpforlevel + "  xp")
-        }
-       if(message.content.startsWith("u!setxp"))
-       {
-            if(!message.member.hasPermission("BAN_MEMBERS")){
-                message.channel.send("Non puoi")
-                return
-            }
-            var usertoxp = message.author.id
-            var numxp = message.content.slice(8)
-            var serverid = message.guild.id
-            Levels.setXp(usertoxp, serverid, numxp)
-            message.channel.send( "<@"+ usertoxp + "> ora hai " + numxp + " xp")
-       }
-       if(message.content == "u!rank"){
-           database.collection("levels").find({ userID: message.member.id}).toArray(function(err, result){
-                message.channel.send("You have " + result[0].xp + " xp, so you are level " + result[0].level)
-           })
-       }
-
+       if(message.content.startsWith("u!learn greetings ")){
+       mongoclient.connect('mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data', { useNewUrlParse: true, useUnifiedTopology: true}, function(err,db){
+    var database = db.db("Data")
+         database.collection("Words").insertOne({category: "greetings", frase: message.content.slice(18) })
+         message.channel.send("'" + message.content.slice(18) + "' added to the database")
+       })}
     });
