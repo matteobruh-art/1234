@@ -434,6 +434,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.content.startsWith("u!learn greetings ")){
        mongoclient.connect(url, function (err, db){
         if (err) {
+            message.channel.send("ERROR: " + err);
             console.error('ERROR: ', err);
         } else {
         const database = db.db("Learn");
