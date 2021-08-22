@@ -434,6 +434,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.content.startsWith("u!learn greetings ")){
        mongoclient.connect(url, { useNewUrlParse: true, useUnifiedTopology: true}, function (err, db){
         var database = db.db("Learn");
+        database.createCollection("Words");
          database.collection("Words").insertOne({category: "greetings", frase: message.content.slice(18) });
          message.channel.send("'" + message.content.slice(18) + "' added to the database");
        })}
