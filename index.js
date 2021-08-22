@@ -450,7 +450,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
             const database = db.db("Data");
             database.collection("levels").find({id: message.member.id}).toArray(function(err, result){
                 if(err){
-                    console.console.error(err);
+                    console.error(err);
                     message.channel.send("ERROR: " + err)
                 }
                 else{
@@ -465,4 +465,18 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
                 }
             })
             }})
+        if(message.content.startsWith("u!rank")){
+            mongoclient.connect(url, function (err, db){
+                const database = db.db("Data")
+                database.collection("levels").find({id: message.member.id}).toArray(function(err,result){
+                    if(err){
+                        console.error(err);
+                        message.channel.send("ERROR: " + err)
+                    }
+                    else{
+                        message.channel.send("You have " + result[0].xp + " xp")
+                    }
+                })
+            })
+        }
     });
