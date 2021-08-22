@@ -432,7 +432,7 @@ const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmen
        if(message.author.bot) return
        const randomxp = Math.floor(Math.random() * 15);
        if(message.content.startsWith("u!learn greetings ")){
-       mongoclient.connect(url, { useNewUrlParse: true, useUnifiedTopology: true}, function (err, db){
+       mongoclient.connect(url, function (err, db){
         if (err) {
             console.error('ERROR: ', err);
         } else {
