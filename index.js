@@ -7,22 +7,17 @@ const mongoclient = require("mongodb").MongoClient
 
 bot.login(process.env.token);
 
-bot.DisTube = new DisTube( bot, { searchSongs: false, emitNewSongOnly: true});
 
-const messaggikiller = [" ha visto un video dei Me Contro Te", " si è iscritto a T-Series", " è stato ucciso perché aveva la fotocamera disattivata", " non può morire, è immortale", " è morto tentando di sconfiggere l'Ender Dragon. F soldato.", " ha assaggiato la pizza con l'ananas", " ha failato un parkour ed è morto per i danni da caduta", " ha atteso per tutta la vita i voti di scienze", " voleva vedere cosa c'era nell'area 51. F.", " ha starnutito con gli occhi aperti, quindi gli è schizzato fuori il cervello", " è morto per overdose di meme", " è morto da un esplosione di creeper", " un giorno si svegliò di colpo perché sentì un rumore, scese in cucina e vide Zio Mainardi che mangiava gli spaghetti, così corse subito di sopra ma inciapò nelle scale e morì.", " è morto", " viene hackerato dal suo prof di matematica e muore perché anche lui era un computer ed era collegato tramite un cavo USB al suo PC", " si è ubriacato con la sprite ed è andato in coma etilico", " è andato a sbattere con nyan-cat", " mangiò troppi spaghetti in scatola e morì", " ha provato ad andare in Australia"];
+const messaggikiller = [" send an image in general", " subbed to T-Series", " was ejected", " died squished by a cross", " tried to kill Ender Dragon. F soldier.", " ate pizza with pineapple", " failed a parkour and died", " died cos i used ZA WARUDOOO!", " tried to enter the area 51. F.", " died for a memes overdose", " died for a creeper", " suddendly woke up cos heard a noise, went in the kitchen and saw Zio Mainardi eating spaghetti, so he ran upstairs but stumbled and died.", " died", " kissed nyan-cat", " ate to much canned spaghetti", " fought against a kangaroo and died cos kangaroos are too strong, kangaroos will CONQUIRE THE WORL....ZA WARUDOOOOO"];
 
 var embed = new discord.MessageEmbed()
       .setColor("#f2f2f2")
-      .setTitle("Clicca qui per scaricare i giochi migliori al mondo")
+      .setTitle("M4TT30")
       .setURL("https://sites.google.com/view/giochidimatteo/scarica")
-      .addField("Breakout (pc, android e itch.io", "Gioca al famoso gioco arcade Breakout, ma molto più difficile", false)
-      .addField("Boom (pc)", "Evita le dinamiti e ottieni il puntegio più alto (o più basso) di tutti", false)
-      .addField("Flappy Sus (pc e android)", "Schiva i tubi e ottieni punti facendo volare l'impostore", false)
-      .addField("Elon vs Billionaires (pc e itch.io)", "Gioca al gioco non ufficiale di Elon Musk, sconfiggi gli altri miliardari, sblocca skin e porta i Dogecoin TO THE MOON, o forse meglio dire TO MARS", false)
-      .addField("Link itch.io", "Breakout: https://oxomatteoxo.itch.io/breakout e Elon vs Billionaires: https://oxomatteoxo.itch.io/elon", false)
+      .setDescription("M4TT30 is a fantastic game developer, a memer and a very nice person")
       .setURL("https://oxomatteoxo.itch.io")
       .setThumbnail("https://images-ext-2.discordapp.net/external/H_kDgZ0pZ5KtvxHEkUhTjEfs3lxKnD_zkWTxXVU1nf0/%3Fsize%3D512/https/cdn.discordapp.com/icons/760184013121257512/a899a4245989567ade6b760756748769.png")
-      .setFooter("Scarica oppure ti banno e visita il canale di SplashGamer011");
+      .setFooter("PLS check out the yt channel i run with splash too, it's called Splash Productions");
       
 bot.on("message", (message) =>
 {
@@ -31,37 +26,21 @@ if(message.content == "u!help"){
     var servers = message.member.guild
     var helpembed = new discord.MessageEmbed()
        .setColor('#000000')
-       .setTitle("Tutti i comandi")
-       .setDescription("Ecco tutti i comandi per Bot Strano")
-       .addField("u!time","Se non sai che ore sono", true)
-       .addField("u!clear 1-100", "Se vuoi cancellare velocemente dei messaggi", true)
-       .addField("u!games", "Se ti va di giocare a dei videogiochi belli", true)
-       .addField("u!serverinfo","Per vedere le info del server", true)
-       .addField("u!userinfo", "Per vedere le info di un utente", true)
-       .addField("u!avatar","Per vedere l'avatar di un utente", true)
-       .addField("u!kick e u!ban","Per bannare e kickare",true)
-       .addField("u!join, u!stop, u!bruh, u!sus, u!notsus, u!tiaspecto, u!mucca, u!emergencymeeting, u!giornogiovanna","Per ascoltare suoni", true)
-       .addField("nice, !sus","Scoprilo", true)
-       .addField("u!8ball","Se vuoi chiedere qualcosa al bot", true)
-       .addField("u!vote","Per votare chi ti sembra sus",true)
+       .setTitle("Commands")
+       .setDescription("Here all my commands")
+       .addField("u!clear 1-100", "Delete 1-100 message (it's a bit bugged)", true)
+       .addField("u!M4TT30", "To know more about the developer, M4TT30", true)
+       .addField("u!serverinfo","See server information", true)
+       .addField("u!userinfo", "See user information", true)
+       .addField("u!avatar","See user avatar", true)
+       .addField("u!kick e u!ban","Ban and Kick",true)
+       .addField("u!join, u!stop, u!bruh, u!sus, u!notsus, u!tiaspecto, u!cow, u!emergencymeeting, u!jojo","Play sounds in voice channel", true)
+       .addField("nice, !sus","Sus functions", true)
+       .addField("u!8ball","To ask something to the bot", true)
+       .addField("u!vote","vote sussy members",true)
        .setThumbnail(servers.iconURL())
-       .setFooter("Ce ne sono alcuni segreti");
+       .setFooter("There are secrete ones too");
     message.channel.send(helpembed)
-}
-if(message.content == "u!time" ) {
-    var data= new Date();
-    var ora = data.getHours();
-    var minuti = data.getMinutes();
-    if (minuti < 10){
-  minuti = "0" + minuti
-    }
-    if (ora < 10){
-        ora = "0" + ora
-          }
-    message.channel.send("sono le "+ ora + ":"+minuti);
-}
-if(message.content == "grazie" ){
-    message.channel.send("prego!");
 }
 if( message.content == "thanks" ){
     message.channel.send("ur welcome!");
@@ -69,9 +48,6 @@ if( message.content == "thanks" ){
 if(message.content == "lol" || message.content == "LOL" || message.content == "lel" || message.content == "lul" ){
     message.channel.send("lmao");
 }
-if( message.content == "bravo bot") {
-    message.reply("Grazie:blush:");
- }
  if(message.content == "bruh"){
      message.channel.send("Bruh") 
  }
@@ -80,37 +56,37 @@ if( message.content == "bravo bot") {
 }
 if(message.content.startsWith("u!clear")){
     if(!message.member.hasPermission("MANAGE_MESSAGES")){
-        message.channel.send("non hai il permesso!");
+        message.channel.send("You don't have permission");
         return
     }
    if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
-       message.channel.send("non ho il permesso");
+       message.channel.send("You don't have permission");
        return;
    }
    var count = message.content.slice(8);
    count = parseInt(count);
 
    if(!count || count > 100){
-       message.channel.send("Inserisci un numero valido");
+       message.channel.send("Insert a valid number");
        return;
    }
 
 
    message.channel.bulkDelete(count, true);
-   message.channel.send(count + " messaggi eliminati")
+   message.channel.send(count + " deleted messages")
    .then(msg => {
        msg.delete({timeout:2000})
    })
 }
-if(message.content == "bot strano fa schifo"){
-    message.author.send("cosa hai detto scusa?");
+if(message.content.includes("weird bot sucks")){
+    message.author.send("u suck more");
     message.channel.send("-ban " + message.author.toString());
 }
 if(message.content == "cringe"){
-    message.channel.send("super cringe");
+    message.channel.send("very cringe");
 }
 
-if(message.content == "u!games"){
+if(message.content == "u!M4TT30"){
     message.channel.send(embed);
 }
 if(message.content == "u!serverinfo"){
@@ -162,36 +138,37 @@ if(message.content.startsWith("u!avatar")){
   if(message.content.startsWith("u!kick")){
 var utenteKick = message.mentions.members.first();
  if(!message.member.hasPermission("KICK_MEMBERS")){
-     message.channel.send("No");
+     message.channel.send("U can't bro");
      return;
  }
  if(!utenteKick.kickable){
-     message.channel.send("Nope")
+     message.channel.send("Bro he is unkickable lol")
      return;
  }
 
  if(!utenteKick){
      message.channel.send("wut?")
  }
-  utenteKick.kick()
-  .then(()=> message.channel.send("<@"+ utenteKick + "> kickato"))
+ message.channel.send("<@"+ utenteKick + "> kicked")
+  .then(()=> utenteKick.kick())
+
   }
   if(message.content.startsWith("u!ban")){
       var utenteBan = message.mentions.members.first();
       if(!message.member.hasPermission("BAN_MEMBERS")){
-          message.channel.send("no");
+          message.channel.send("u can't bro");
           return;
       }
       if(!utenteBan){
-          message.channel.send("caspita");
+          message.channel.send("sus");
         return;
       }
       if(!utenteBan.bannable){
           message.channel.send("https://tenor.com/view/davie504-slap-slappers-davie-you-tuber-gif-16545714");
           return;
       }
-      utenteBan.ban()
-      .then(()=> message.channel.send("<@"+ utenteBan + "> bye bye"));
+      message.channel.send("<@"+ utenteBan + "> bye bye")
+      .then(()=> utenteBan.ban() );
   }
   if(message.content == "!sus"){
       message.channel.send("sus", {files: ["./Image/sus.jpg"]});
@@ -199,7 +176,7 @@ var utenteKick = message.mentions.members.first();
   if (message.content == "u!bruh" || message.content == "u!Bruh") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("You are not in a voice channel");
     }
     else{
         canalevocale.join()
@@ -211,7 +188,7 @@ var utenteKick = message.mentions.members.first();
 if (message.content == "u!join" || message.content == "u!Join") {
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("You are not in a voice channel");
     }
     else{
         canalevocale.join();
@@ -222,84 +199,31 @@ if(message.content == "nice" || message.content == "NICE" || message.content == 
     message.channel.send("noice");
     message.channel.send("https://tenor.com/view/noice-nice-click-gif-8843762")
 }
-if(message.content == "chi sono io?"){8
+if(message.content == "who am i?"){8
     var user = message.member;
-    message.channel.send("Tu sei" + user.toString());
+    message.channel.send("u r" + user.toString());
 }
-if(message.content.includes(" teo")||message.content.includes(" Teo")||message.content.includes(" TEO")||message.content.includes("matteo")||message.content.includes("MATTEO")||message.content.includes("Matteo")){
+if(message.content.includes("M4TT30")){
     message.channel.send("<@736906782571495446>");
 }
-if(message.content.includes("bot strano") || message.content.includes("Bot strano")|| message.content.includes == ("BOT STRANO")){
-      message.channel.send("cosa?");
-}
-//conversazione
-var splashbot = 821446223114141728;
-if(message.content == "!conversazione" && message.member.hasPermission("MANAGE_MESSAGES")){
-    message.channel.send("Hey Splash BOT, come va?")
-}
-/*Non va per niente bene*/
-const conversazione1 = ["Pk che è successo????", "Io bene grazie", "Noice"]
-if(message.content == "Non va per niente bene" && message.author.id == splashbot){
-    const randomcov1 = Math.floor(Math.random() * conversazione1.length)
-    message.channel.send(".")
-    .then(msg => {
-        msg.delete({timeout:0})
-    })
-    .then(msg => {setTimeout(() => {
-        message.channel.send(conversazione1[randomcov1])
-    }, timeout=600)});
-   
-}
-/*Tutto bene*/
-const conversazione2 = ["Anche io", "Uff beato te, la mia console continua a darmi errori", "oc ance io sto moto bene o smeso di nn metere i ;, si vde vro?"];
-if(message.content=="Tutto bene" && message.author.id == splashbot){
-    const randomcov2 = Math.floor(Math.random() * conversazione2.length)
-    message.channel.send(".")
-    .then(msg => {
-        msg.delete({timeout:0})
-    })
-    .then(msg => {setTimeout(() => {
-        message.channel.send(conversazione2[randomcov2])
-    }, timeout=600)});
-}
-/*Sì*/
-const conversazione3 = ["NO!!","'N che senso?","meno male"]
-if(message.content=="Sì" && message.author.id == splashbot){
-    const randomcov3 = Math.floor(Math.random() * conversazione3.length)
-    message.channel.send(".")
-    .then(msg => {
-        msg.delete({timeout:0})
-    })
-    .then(msg => {setTimeout(() => {
-        message.channel.send(conversazione3[randomcov3])
-    }, timeout=600)});
-}
-//fine conversazione
-//dissociamento
-if(message.content.includes("ebrei")||message.content.includes("ebreo")||message.content.includes("Ebrei")||message.content.includes("Ebreo")||message.content.includes("hitler")||message.content.includes("Hitler")){
-    message.channel.send("Nooooo mi dissocio")
-    message.delete()
-}
+
 if(message.content.startsWith("u!kill")){
     var utentekillato  = message.mentions.members.first();
     if(!utentekillato){
-        message.channel.send("E chi?")
+        message.channel.send("Who wanna kill?")
         return;
     }
     if(utentekillato.id == message.author.id){
-        message.channel.send("Ma no non ucciderti che sad");
+        message.channel.send("BRO DON'T KILL YOURSELF!");
         return;
     }
     const randomessage = Math.floor(Math.random() * messaggikiller.length)
     message.channel.send(utentekillato.user.username + messaggikiller[randomessage]);
 }
-if(message.content.includes("mmm")||message.content.includes("Mmm")||message.content.includes("MMM")){
-    message.channel.send("MmMmMmMmM :thinking:")
-}
 if(message.content == "u!tiaspecto"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -312,7 +236,7 @@ if(message.content == "u!tiaspecto"){
 if(message.content == "u!sus"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -325,7 +249,7 @@ if(message.content == "u!sus"){
 if(message.content == "u!notsus"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -338,7 +262,7 @@ if(message.content == "u!notsus"){
 if(message.content == "u!giornogiovanna" || message.content == "u!ilventodoro"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -351,7 +275,7 @@ if(message.content == "u!giornogiovanna" || message.content == "u!ilventodoro"){
 if(message.content == "u!marioeluigi" || message.content == "u!marioandluigi"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -364,7 +288,7 @@ if(message.content == "u!marioeluigi" || message.content == "u!marioandluigi"){
 if(message.content == "u!emergencymeeting"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -374,10 +298,10 @@ if(message.content == "u!emergencymeeting"){
     }
 
 }
-if(message.content == "u!mucca"){ 
+if(message.content == "u!cow"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -390,7 +314,7 @@ if(message.content == "u!mucca"){
 if(message.content == "u!stop"){ 
     var canalevocale = message.member.voice.channel;
     if(!canalevocale){
-        message.channel.send("Non sei dentro in un canale vocale");
+        message.channel.send("u r not in a vc");
     }
     else{
         canalevocale.join()
@@ -413,70 +337,10 @@ if(message.content.startsWith("u!vote")){
     }
 }
 //8Ball
-const EightBall = ["`🎱 Sì`", "`🎱 No`", "`🎱 Forse`", "`🎱 Probabilmente sì`", "`🎱 Probabilmente no`", "`🎱 Boh`", "`🎱 Boh, chiedi a Splash BOT`", "`🎱 Dipende...`", "`🎱 Ah boh se non lo sai tu che ne so io`"];
+const EightBall = ["`🎱 Yes`", "`🎱 No`", "`🎱 Maybe`", "`🎱 Probably yes`", "`🎱 Probably no`", "`🎱 idk`", "`🎱 idk, ask to eren bot`", "`🎱 Who knows?`"];
     if(message.content.startsWith("u!8ball")){
         const EightBallAnswer = Math.floor(Math.random() * EightBall.length)
-        if (message.content.includes("matteo")|| message.content.includes("Matteo")|| message.content.includes("MATTEO")|| message.content.includes("matteO")|| message.content.includes("mattEO")|| message.content.includes("teo")|| message.content.includes("TEO")|| message.content.includes("Teo")|| message.content.includes("<@736906782571495446>")){
-            message.channel.send("non posso riferire informazioni riguardo all'agente 736906782571495446 mi discpiace")
-            return;
-        }
-        if(message.content.includes("CIA")|| message.content.includes("cia")|| message.content.includes("Cia")|| message.content.includes("cIA"|| message.content.includes("ciA")|| message.content.includes("CIa")|| message.content.includes("cIa")|| message.content.includes("CiA"))){
-            message.channel.send("non posso fornire informazioni riguardo alla CIA sorry")
-            return;
-        }
         message.channel.send(EightBall [EightBallAnswer]);
     }
-       //level
-       var url = "mongodb+srv://BotStrano:27022007artifoni@cluster0.k3tuo.mongodb.net/Data"
-    if(!message.guild) return
-       if(message.author.bot) return
-       const randomxp = Math.floor(Math.random() * 15);
-       if(message.content.startsWith("u!learn greetings ")){
-       mongoclient.connect(url, function (err, db){
-        if (err) {
-            message.channel.send("ERROR: " + err);
-            console.error('ERROR: ', err);
-        } else {
-        const database = db.db("Learn");
-         database.collection("Words").insertOne({category: "greetings", frase: message.content.slice(18) });
-         message.channel.send("'" + message.content.slice(18) + "' added to the database");
-        }
-       })}
-       mongoclient.connect(url, function (err, db){
-        if (err) {
-            message.channel.send("ERROR: " + err);
-            console.error('ERROR: ', err);
-        } else {
-            const database = db.db("Data");
-            database.collection("levels").find({id: message.member.id}).toArray(function(err, result){
-                if(err){
-                    console.error(err);
-                    message.channel.send("ERROR: " + err)
-                }
-                else{
-                    var s = []
-                    if(result == s){
-                        database.collection("levels").insertOne({id: message.member.id, username: message.member.user.username, xp:1})
-                        return
-                    }
-                    
-                    var sus = result[0].xp + 5;
-                    database.collection("levels").updateOne({id: message.member.id}, {$set:{xp: sus}})   
-                }
-            })
-            }})
-        if(message.content.startsWith("u!rank")){
-            mongoclient.connect(url, function (err, db){
-                const database = db.db("Data")
-                database.collection("levels").find({id: message.member.id}).toArray(function(err,result){
-                    if(err){
-                        console.error(err);
-                        message.channel.send("ERROR: " + err)
-                    }
-                    else{
-                        message.channel.send("You have " + result[0].xp + " xp")
-                    }
-                })
-            })
-        }
+     
     });
