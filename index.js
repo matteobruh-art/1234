@@ -51,8 +51,7 @@ var randomvo = Math.floor(Math.random() * 100)
 var rateembed = new discord.MessageEmbed()
 .setColor('#000000')
 .setTitle(user)
-.setDescription(ratedthing + " is a " + randomvo + "/100" )
-.setThumbnail(server.iconURL());
+.setDescription(ratedthing + " is a " + randomvo + "/100" );
 if(message.content.startsWith("u!rank")){
      ratedthing = message.content.slice(7);
     user = message.member.user.username;
