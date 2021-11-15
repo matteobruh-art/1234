@@ -53,9 +53,10 @@ var rateembed = new discord.MessageEmbed()
 .setTitle(user)
 .setDescription(ratedthing + " is a " + randomvo + "/100" );
 if(message.content.startsWith("u!rank")){
-     ratedthing = message.content.slice(7);
+    ratedthing = message.content.slice(7);
     user = message.member.user.username;
     message.channel.send(rateembed)
+    console.log(ratedthing)
 }
 if(message.content == "lol" || message.content == "LOL" || message.content == "lel" || message.content == "lul" ){
     message.channel.send("lmao");
