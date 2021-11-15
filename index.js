@@ -52,7 +52,7 @@ var rateembed = new discord.MessageEmbed()
 .setColor('#000000')
 .setTitle(user)
 .setDescription(ratedthing + " is a " + randomvo + "/100" )
-.setImage(server.iconURL());
+.setThumbnail(server.iconURL());
 if(message.content.startsWith("u!rank")){
      ratedthing = message.content.slice(7);
     user = message.member.user.username;
