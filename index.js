@@ -45,6 +45,19 @@ if(message.content == "u!help"){
 if( message.content == "thanks" ){
     message.channel.send("ur welcome!");
 }
+var user;
+var ratedthing;
+var randomvo = Math.floor(Math.random() * 100)
+var rateembed = new discord.MessageEmbed()
+.setColor('#000000')
+.setTitle(user)
+.setDescription(ratedthing + " is a " + randomvo + "/100" )
+.setImage(server.iconURL());
+if(message.content.startsWith("u!rank")){
+     ratedthing = message.content.slice(7);
+    user = message.member.user.username;
+    message.channel.send(rateembed)
+}
 if(message.content == "lol" || message.content == "LOL" || message.content == "lel" || message.content == "lul" ){
     message.channel.send("lmao");
 }
